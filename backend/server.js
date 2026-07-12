@@ -11,7 +11,9 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Feature routes are mounted here as each one is built (auth, users, profile, jobs, applications).
+app.use('/api/v1/auth', require('./routes/authRoutes'));
+
+// Remaining feature routes are mounted here as each one is built (users, profile, jobs, applications).
 
 // Centralized error handler must be the LAST app.use() call.
 app.use(errorHandler);
